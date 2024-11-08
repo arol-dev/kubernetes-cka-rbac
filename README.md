@@ -33,7 +33,7 @@ Las VMs consisten en:
 - 1 nodo master.
 - 2 nodos worker.
 
-## Paso 1: Despliegue de las VMs
+### Paso 1: Despliegue de las VMs
 
 1. Clona el repositorio en tu entorno local:
 
@@ -66,13 +66,13 @@ Las VMs consisten en:
 
    Guarda los detalles proporcionados, ya que los necesitarás en el siguiente paso.
 
-## Paso 2: Conectar a las VMs con MobaXterm
+### Paso 2: Conectar a las VMs con MobaXterm
 
 1. Abre **MobaXterm** y utiliza la configuración SSH obtenida anteriormente para conectarte a las tres máquinas.
    - No se requiere un usuario específico, deja el campo vacío.
    - Si se te solicita usuario o contraseña, utiliza la cadena `vagrant`.
 
-## Paso 3: Configuración Inicial
+### Paso 3: Configuración Inicial
 
 1. **Crear directorio de trabajo**:
    ```bash
@@ -95,7 +95,7 @@ Las VMs consisten en:
    sudo openssl x509 -req -days 365 -in rbac/operador.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -out rbac/operador.crt
    ```
 
-## Paso 4: Configuración de `kubeconfig`
+### Paso 4: Configuración de `kubeconfig`
 
 1. **Añadir la información del cluster**:
    ```bash
@@ -122,7 +122,7 @@ Las VMs consisten en:
    kubectl --kubeconfig=rbac/operador-config config view
    ```
 
-## Paso 5: Comprobación de permisos sin configurar el Role
+### Paso 5: Comprobación de permisos sin configurar el Role
 
 1. **Configurar la variable `KUBECONFIG` para utilizar el nuevo archivo**:
    ```bash
@@ -143,7 +143,7 @@ Las VMs consisten en:
 
 ## Configuración de Roles y RoleBindings
 
-## Paso 1: Crear el Role para listar Pods
+### Paso 1: Crear el Role para listar Pods
 
 1. **Crear el Role `developers` con permisos para listar Pods**:
    ```bash
@@ -156,7 +156,7 @@ Las VMs consisten en:
    kubectl describe role developers
    ```
 
-## Paso 2: Crear el RoleBinding
+### Paso 2: Crear el RoleBinding
 
 1. **Definir el RoleBinding en YAML**:
    ```yaml
@@ -182,7 +182,7 @@ Las VMs consisten en:
    kubectl create rolebinding developer-group --group=developer --role=developers
    ```
 
-## Paso 3: Verificación de permisos
+### Paso 3: Verificación de permisos
 
 1. **Configurar la variable `KUBECONFIG`**:
    ```bash
