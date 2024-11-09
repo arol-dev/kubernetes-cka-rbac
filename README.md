@@ -158,7 +158,7 @@ Las VMs consisten en:
 
 ### Paso 2: Crear el RoleBinding
 
-1. **Definir el RoleBinding en YAML**:
+1. **Crear el RoleBinding en YAML de forma declarativa :**
    ```yaml
    apiVersion: rbac.authorization.k8s.io/v1
    kind: RoleBinding
@@ -176,8 +176,11 @@ Las VMs consisten en:
      kind: Group
      name: developer
    ```
+   ```bash
+   kubectl apply -f <nameyamlfile>
+   ```
 
-2. **Aplicar el RoleBinding**:
+2. **Crear el RoleBinding de forma imperativa**:
    ```bash
    kubectl create rolebinding developer-group --group=developer --role=developers
    ```
